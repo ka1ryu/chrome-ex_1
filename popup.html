@@ -13,7 +13,7 @@
        <img src="icon_128.png" alt="アイコン画像">
       </div>
       <div class="chatting">
-        <div class="says">
+        <div class="says" id="says">
           <p>チケットに必要な内容を選択してください</p>
         </div>
       </div>
@@ -36,7 +36,7 @@
     </form>
   </div>
   <div class="cp_ipselect cp_sl01">
-      <select required id="service">
+      <select required id="services">
         <option value="null">--- サービスを選択してください ---</option>
         <option value="otkou">otoku</option>
         <option value="光コラボ">回線・光コラボ</option>
@@ -58,7 +58,7 @@
           <label for="SEO">
             <i class="fab fa-linux"></i> SEO
           </label>
-          <input type="radio" id="リスティング" name="channel" value="" class="channel">
+          <input type="radio" id="リスティング" name="channel"  class="channel">
           <label for="リスティング">
             <i class="fab fa-linux"></i> Listing
           </label>
@@ -95,7 +95,11 @@
       </label>
     </div>
   </form>
+    <div id="targetText">
+      <textarea name="text"></textarea>
+    </div>
     <div class="copy-btn">
+      <a href="#" class="square_btn" id="create">クリックして生成</a>
       <a href="#" class="square_btn" id="copy">クリックしてコピー</a>
     </div>
   </div>

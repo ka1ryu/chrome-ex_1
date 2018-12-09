@@ -1,8 +1,24 @@
 document.addEventListener('DOMContentLoaded', function() {
-  document.getElementById("copy").addEventListener("click", getDevice);
+  document.getElementById("create").addEventListener("click", createTitle);
+  document.getElementById("copy").addEventListener("click", copyTextToClip);
 });
 
-var ticketTitle = "";
+var temp = "";
+
+function createTitle() {
+  if (getServiceName()) {
+    getjobCategory();
+    getServiceName();
+    getChannel();
+    getOpt();
+    getDevice();
+    if (channel == "on") {
+        document.getElementById("targetText").textContent = job + "【" + service + "】" + opt +"｜"+ device;
+    } else {
+        document.getElementById("targetText").textContent = job + "【" + service + "】" + channel + "｜" + opt +"｜"+ device;
+    }
+  }
+}
 
 // 職種の選択状況を取得
 function getjobCategory() {
@@ -17,20 +33,23 @@ function getjobCategory() {
   }
   // 職種未選択の場合アラート表示
   if (jobName.length == 0) {
-    alert("選べや！");
+    return;
   }
   // 選択済みの職種を確保
-  console.log(jobName[0]);
+  job = jobName.join('・');
 }
 
 // サービス名を取得
 function getServiceName() {
-  var serviceName = document.getElementById("service").value;
+  var serviceName = document.getElementById("services").value;
   // 未選択の場合は、エラー対応
-  if (serviceName != "null") {
-    console.log(serviceName);
+  if (serviceName == "null") {
+    document.getElementById("says").textContent = "ちゃんと全部入力しとる？";
+    document.getElementById("targetText").textContent = "";
+    return false;
   } else {
-    alert("選べや！");
+    service = document.getElementById("services").value;
+    return true;
   }
 }
 
@@ -45,10 +64,9 @@ function getChannel() {
   }
   // 職種未選択の場合アラート表示
   if (channelName.length == 0) {
-    alert("選べや！");
+    return;
   }
-  // 選択済みの職種を確保
-  console.log(channelName);
+  channel = channelName
 }
 // 流入経路
 function getOpt() {
@@ -61,10 +79,10 @@ function getOpt() {
   }
   // 職種未選択の場合アラート表示
   if (optName.length == 0) {
-    alert("選べや！");
+    return;
   }
   // 選択済みの職種を確保
-  console.log(optName);
+  opt = optName;
 }
 // デバイス
 function getDevice() {
@@ -77,8 +95,27 @@ function getDevice() {
   }
   // 職種未選択の場合アラート表示
   if (deviceName.length == 0) {
-    alert("選べや！");
+    return;
   }
   // 選択済みの職種を確保
-  console.log(deviceName);
+  device = deviceName;
+}
+
+
+// テキストデータをクリップボードへコピー！！！
+function copyTextToClip() {
+  var element = document.querySelector('#targetText');
+  var selection = window.getSelection();
+  var range = document.createRange();
+  range.selectNodeContents(element);
+  selection.removeAllRanges();
+  selection.addRange(range);
+  //console.log('選択された文字列: ', selection.toString());
+  var succeeded = document.execCommand('copy');
+  if (succeeded) {
+      document.getElementById("says").textContent = "コピーできたで";
+  } else {
+      document.getElementById("says").textContent = "ちゃんと全部入力しとる？";
+  }
+  selection.removeAllRanges();
 }
