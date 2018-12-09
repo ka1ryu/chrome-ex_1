@@ -10,21 +10,35 @@
     <!--吹き出しはじまり-->
     <div class="balloon5">
       <div class="faceicon">
-       ★ここに画像を入れる <img~>★
+       <img src="icon_128.png" alt="アイコン画像">
       </div>
       <div class="chatting">
         <div class="says">
-          <p>チケットに必要な内容を選択して、<br>ボタンをクリック</p>
+          <p>チケットに必要な内容を選択してください</p>
         </div>
       </div>
     </div>
   <!--吹き出し終わり-->
+  <div class="select-os">
+      <input type="checkbox" id="システム" name="work" value="シス" class="work">
+      <label for="システム">
+        <i class="fab fa-linux"></i> システム
+      </label>
+      <input type="checkbox" id="フロント" name="work" value="フロ" class="work">
+      <label for="フロント">
+        <i class="fab fa-linux"></i> フロント
+      </label>
+      <input type="checkbox" id="デザイン" name="work" value="デザ" class="work">
+      <label for="デザイン">
+        <i class="fab fa-linux"></i> デザイン
+      </label>
+  </div>
   <div class="cp_ipselect cp_sl01">
       <select required>
-        <option value="what">--- サービスを選択してください ---</option>
+        <option value="">--- サービスを選択してください ---</option>
         <option value="otkou">otoku</option>
-        <option value="回線・光コラボ">回線・光コラボ</option>
-        <option value="回線・らくサポ">回線・らくサポ</option>
+        <option value="光コラボ">回線・光コラボ</option>
+        <option value="らくサポ">回線・らくサポ</option>
         <option value="エアサポ">エアサポ</option>
         <option value="ガラス修理">ガラス修理</option>
         <option value="雨漏り修理">雨漏り修理</option>
@@ -34,46 +48,50 @@
   </div>
 
       <div class="select-os">
-          <input type="radio" id="Afi" name="channel" value="unix" class="channel">
-      <label for="Afi">
-          <i class="fab fa-linux"></i> Afi
-      </label>
-
-          <input type="radio" id="SEO" name="channel" value="unix" class="channel">
-      <label for="SEO">
-          <i class="fab fa-linux"></i> SEO
-      </label>
-    </div>
+          <input type="radio" id="Afi" name="channel" value="Afi" class="channel">
+          <label for="Afi">
+            <i class="fab fa-linux"></i> Afi
+          </label>
+          <input type="radio" id="SEO" name="channel" value="SEO" class="channel">
+          <label for="SEO">
+            <i class="fab fa-linux"></i> SEO
+          </label>
+          <input type="radio" id="リスティング" name="channel" value="" class="channel">
+          <label for="リスティング">
+            <i class="fab fa-linux"></i> Listing
+          </label>
+      </div>
 
     <div class="select-os">
-      <input type="radio" id="LPO" name="optimization" value="windows" class="optimization" checked>
+      <input type="radio" id="LPO" name="optimization" value="LPO" class="optimization">
       <label for="LPO">
           <i class="fab fa-windows"></i> LPO
       </label>
 
-          <input type="radio" id="EFO" name="optimization" value="windows" class="optimization" checked>
+          <input type="radio" id="EFO" name="optimization" value="EFO" class="optimization">
       <label for="EFO">
           <i class="fab fa-windows"></i> EFO
       </label>
     </div>
 
   <div class="select-os">
-      <input type="radio" id="SP" name="device" value="osx" class="device">
+      <input type="radio" id="SP" name="device" value="SP" class="device">
       <label for="SP">
           <i class="fab fa-apple"></i> SP
       </label>
 
-      <input type="radio" id="PC" name="device" value="osx" class="device">
+      <input type="radio" id="PC" name="device" value="PC" class="device">
         <label for="PC">
           <i class="fab fa-apple"></i> PC
         </label>
 
-      <input type="radio" id="SP/PC" name="device" value="osx" class="device">
+      <input type="radio" id="SP/PC" name="device" value="SP/PC" class="device">
       <label for="SP/PC">
           <i class="fab fa-apple"></i> SP/PC
       </label>
     </div>
-    <div class="copy-box">
+    <div class="copy-btn">
+      <a href="#" class="square_btn">クリックしてコピー</a>
     </div>
   </div>
   <script src="popup.js"></script>
