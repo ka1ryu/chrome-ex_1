@@ -1,6 +1,6 @@
 body {
     width: 400px;
-    margin: 0px;
+    margin: 0 auto;
     background-color: #fff;
     min-width: 357px;
     overflow-x: hidden;
@@ -13,4 +13,148 @@ img {
     vertical-align: middle;
     width: 75px;
     height: 75px;
+}
+
+.wrapper {
+    margin-left: 40px;
+}
+
+.select-os {
+    margin: 15px auto;
+}
+
+.select-os input {
+  display: none;
+}
+.select-os input[type="radio"]:checked + label {
+  color: #3275bc;
+  border: 2px solid #3275bc;
+  background-color: #d0e6fd;
+}
+.select-os input[type="radio"]:checked.optimization + label {
+  color: #3275bc;
+  border: 2px solid #3275bc;
+  background-color: #d0e6fd;
+}
+.select-os input[type="radio"]:checked.device + label {
+    color: #4caf50;
+    border: 2px solid #4caf50;
+    background-color: #4caf5021;
+}
+.select-os input[type="radio"]:checked.channel + label {
+  color: #bf9701;
+  border: 2px solid #bf9701;
+  background-color: #fbf4dc;
+}
+.select-os label {
+  color: #ddd;
+  border: 2px solid #ddd;
+  text-align: center;
+  display: inline-block;
+  padding: 5px 0px;
+  width: 100px;
+}
+.select-os label:hover {
+    color: #aaa;
+    border: 2px solid #aaa;
+    cursor: pointer;
+}
+
+
+/* 吹き出し */
+.balloon5 {
+    width: 100%;
+    margin: 1.5em 0;
+    overflow: hidden;
+}
+
+.balloon5 .faceicon {
+    float: left;
+    margin-right: -90px;
+    margin-left: 20px;
+    width: 80px;
+}
+
+.balloon5 .faceicon img{
+    width: 100%;
+    height: auto;
+    border: solid 3px #d7ebfe;
+    border-radius: 50%;
+}
+
+.balloon5 .chatting {
+    width: 100%;
+}
+
+.says {
+    display: inline-block;
+    position: relative;
+    margin: 5px 0 0 105px;
+    padding: 17px 13px;
+    border-radius: 12px;
+    background: #d7ebfe;
+    font-size: 10px;
+}
+
+.says:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 18px;
+    left: -24px;
+    border: 12px solid transparent;
+    border-right: 12px solid #d7ebfe;
+}
+
+.says p {
+    margin: 0;
+    padding: 0;
+}
+
+/* ドロップダウンリスト */
+.cp_ipselect {
+    overflow: hidden;
+    width: 90%;
+    margin: 2em auto;
+    text-align: center;
+}
+.cp_ipselect select {
+    width: 100%;
+    padding-right: 1em;
+    cursor: pointer;
+    text-indent: 0.01px;
+    text-overflow: ellipsis;
+    border: none;
+    outline: none;
+    background: transparent;
+    background-image: none;
+    box-shadow: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+.cp_ipselect select::-ms-expand {
+    display: none;
+}
+.cp_ipselect.cp_sl01 {
+    position: relative;
+    border: 1px solid #bbbbbb;
+    border-radius: 2px;
+    background: #ffffff;
+}
+.cp_ipselect.cp_sl01::before {
+    position: absolute;
+    top: 0.8em;
+    right: 0.9em;
+    width: 0;
+    height: 0;
+    padding: 0;
+    content: '';
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #666666;
+    pointer-events: none;
+}
+.cp_ipselect.cp_sl01 select {
+    padding: 8px 38px 8px 8px;
+    color: #666666;
 }

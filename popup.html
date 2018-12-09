@@ -6,15 +6,76 @@
   <link rel="stylesheet" href="popup.css" type="text/css">
 </head>
 <body>
-  <p id="result">コピー中­...</p>
-  <label><input type="radio" name="kome" value="1">コシヒカリ</label>
-  <label><input type="radio" name="kome" value="2">ひとめぼれ</label>
-  <label><input type="radio" name="kome" value="3">あきたこまち</label><br>
+  <div class="wrapper">
+    <!--吹き出しはじまり-->
+    <div class="balloon5">
+      <div class="faceicon">
+       ★ここに画像を入れる <img~>★
+      </div>
+      <div class="chatting">
+        <div class="says">
+          <p>チケットに必要な内容を選択して、<br>ボタンをクリック</p>
+        </div>
+      </div>
+    </div>
+  <!--吹き出し終わり-->
+  <div class="cp_ipselect cp_sl01">
+      <select required>
+        <option value="what">--- サービスを選択してください ---</option>
+        <option value="otkou">otoku</option>
+        <option value="回線・光コラボ">回線・光コラボ</option>
+        <option value="回線・らくサポ">回線・らくサポ</option>
+        <option value="エアサポ">エアサポ</option>
+        <option value="ガラス修理">ガラス修理</option>
+        <option value="雨漏り修理">雨漏り修理</option>
+        <option value="ペット葬儀">ペット葬儀</option>
+        <option value="カギ交換">カギ交換</option>
+      </select>
+  </div>
 
-  <label><input type="radio" name="rice" value="1">コシヒカリ</label>
-  <label><input type="radio" name="rice" value="2">ひとめぼれ</label>
-  <label><input type="radio" name="rice" value="3">あきたこまち</label>
-  <textarea id="text" cols="30" rows="3"></textarea>
+      <div class="select-os">
+          <input type="radio" id="Afi" name="channel" value="unix" class="channel">
+      <label for="Afi">
+          <i class="fab fa-linux"></i> Afi
+      </label>
+
+          <input type="radio" id="SEO" name="channel" value="unix" class="channel">
+      <label for="SEO">
+          <i class="fab fa-linux"></i> SEO
+      </label>
+    </div>
+
+    <div class="select-os">
+      <input type="radio" id="LPO" name="optimization" value="windows" class="optimization" checked>
+      <label for="LPO">
+          <i class="fab fa-windows"></i> LPO
+      </label>
+
+          <input type="radio" id="EFO" name="optimization" value="windows" class="optimization" checked>
+      <label for="EFO">
+          <i class="fab fa-windows"></i> EFO
+      </label>
+    </div>
+
+  <div class="select-os">
+      <input type="radio" id="SP" name="device" value="osx" class="device">
+      <label for="SP">
+          <i class="fab fa-apple"></i> SP
+      </label>
+
+      <input type="radio" id="PC" name="device" value="osx" class="device">
+        <label for="PC">
+          <i class="fab fa-apple"></i> PC
+        </label>
+
+      <input type="radio" id="SP/PC" name="device" value="osx" class="device">
+      <label for="SP/PC">
+          <i class="fab fa-apple"></i> SP/PC
+      </label>
+    </div>
+    <div class="copy-box">
+    </div>
+  </div>
   <script src="popup.js"></script>
 </body>
 </html>

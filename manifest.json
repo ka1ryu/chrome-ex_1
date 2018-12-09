@@ -1,15 +1,19 @@
 {
   "manifest_version": 2,
-  "name": "create ticket title",
+  "name": "Create Ticket Title",
   "version": "1.0",
 
   "browser_action": {
     "default_icon": {
-      "48": "icon_48.png"
+      "128": "icon_128.png"
     },
     "default_popup": "popup.html"
   },
-
+  "icons": {
+    "16": "icon_16.png",
+    "48": "icon_48.png",
+    "128": "icon_128.png"
+  },
   "permissions": [
     "tabs"
   ]
