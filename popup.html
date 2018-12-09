@@ -20,22 +20,24 @@
     </div>
   <!--吹き出し終わり-->
   <div class="select-os">
-      <input type="checkbox" id="システム" name="work" value="シス" class="work">
-      <label for="システム">
+    <form name="jobCategory">
+      <input type="checkbox" id="system" name="work" value="シス" class="work">
+      <label for="system">
         <i class="fab fa-linux"></i> システム
       </label>
-      <input type="checkbox" id="フロント" name="work" value="フロ" class="work">
-      <label for="フロント">
+      <input type="checkbox" id="front" name="work" value="フロ" class="work">
+      <label for="front">
         <i class="fab fa-linux"></i> フロント
       </label>
-      <input type="checkbox" id="デザイン" name="work" value="デザ" class="work">
-      <label for="デザイン">
+      <input type="checkbox" id="design" name="work" value="デザ" class="work">
+      <label for="design">
         <i class="fab fa-linux"></i> デザイン
       </label>
+    </form>
   </div>
   <div class="cp_ipselect cp_sl01">
-      <select required>
-        <option value="">--- サービスを選択してください ---</option>
+      <select required id="service">
+        <option value="null">--- サービスを選択してください ---</option>
         <option value="otkou">otoku</option>
         <option value="光コラボ">回線・光コラボ</option>
         <option value="らくサポ">回線・らくサポ</option>
@@ -46,7 +48,7 @@
         <option value="カギ交換">カギ交換</option>
       </select>
   </div>
-
+    <form name="channelNames">
       <div class="select-os">
           <input type="radio" id="Afi" name="channel" value="Afi" class="channel">
           <label for="Afi">
@@ -61,7 +63,8 @@
             <i class="fab fa-linux"></i> Listing
           </label>
       </div>
-
+    </form>
+  <form name="optNames">
     <div class="select-os">
       <input type="radio" id="LPO" name="optimization" value="LPO" class="optimization">
       <label for="LPO">
@@ -73,7 +76,8 @@
           <i class="fab fa-windows"></i> EFO
       </label>
     </div>
-
+  </form>
+  <form name="deviceNames">
   <div class="select-os">
       <input type="radio" id="SP" name="device" value="SP" class="device">
       <label for="SP">
@@ -90,8 +94,9 @@
           <i class="fab fa-apple"></i> SP/PC
       </label>
     </div>
+  </form>
     <div class="copy-btn">
-      <a href="#" class="square_btn">クリックしてコピー</a>
+      <a href="#" class="square_btn" id="copy">クリックしてコピー</a>
     </div>
   </div>
   <script src="popup.js"></script>
