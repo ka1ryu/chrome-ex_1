@@ -9,6 +9,12 @@
     },
     "default_popup": "popup.html"
   },
+  "content_scripts": [
+          {
+               "matches": ["https://login.bizmanager.yahoo.co.jp/login?url=https://promotionalads.business.yahoo.co.jp*"],
+               "js": ["script.js"]
+          }
+     ],
   "icons": {
     "16": "icon_16.png",
     "48": "icon_48.png",

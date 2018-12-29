@@ -1,9 +1,18 @@
 document.addEventListener('DOMContentLoaded', function() {
   document.getElementById("create").addEventListener("click", createTitle);
-  document.getElementById("copy").addEventListener("click", copyTextToClip);
 });
 
-var temp = "";
+function getTicketTitle(){
+  chrome.tabs.query({active:true}, function(tab) {
+    var titleText = document.getElementById('targetText').innerHTML;
+
+         chrome.tabs.sendMessage(tab[0].id, {list: titleText}, function(response){
+           console.log(response.result);
+         });
+     });
+}
+
+var chicketTitle = "";
 
 function createTitle() {
   if (getServiceName()) {
@@ -13,9 +22,19 @@ function createTitle() {
     getOpt();
     getDevice();
     if (channel == "on") {
-        document.getElementById("targetText").textContent = job + "【" + service + "】" + opt +"｜"+ device;
+        //document.getElementById("targetText").textContent = job + "【" + service + "】" + opt +"｜"+ device;
+        chrome.tabs.query({active:true}, function(tab) {
+        var titleText = job + "【" + service + "】" + opt +"｜"+ device;
+        chrome.tabs.sendMessage(tab[0].id, {list: titleText}, function(response){
+        });
+      });
     } else {
-        document.getElementById("targetText").textContent = job + "【" + service + "】" + channel + "｜" + opt +"｜"+ device;
+        //document.getElementById("targetText").textContent = job + "【" + service + "】" + channel + "｜" + opt +"｜"+ device;
+        chrome.tabs.query({active:true}, function(tab) {
+        var titleText = job + "【" + service + "】" + channel + "｜" + opt +"｜"+ device;
+        chrome.tabs.sendMessage(tab[0].id, {list: titleText}, function(response){
+        });
+      });
     }
   }
 }
