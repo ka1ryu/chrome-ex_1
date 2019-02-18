@@ -9,13 +9,13 @@ $(document).ready(function () {
 
       var toId = $('#to_id_select').val();
 	  
-      if (!currentTab.url.match('redmine.tools.usaqh.com/issues/')) {
+      if (!currentTab.url.match('redmineURL')) {
         setResponseMessage('redmineのページから呼んでください');
         setDisabledProp(false);
         return;
       }
 
-      var requestUrl = "https://script.google.com/macros/s/AKfycbxNqFgZ2jUyg8G6OEVYJBJaxbEgJfQD6-1aaGUw0RZ9YK2ey5c/exec";
+      var requestUrl = "xxxx";
       var ticketUrl = currentTab.url;
       
       $.ajax({
@@ -23,7 +23,7 @@ $(document).ready(function () {
         method: 'POST',
         data:{
           ticket  : ticketUrl
-          pass    : 'ohayou'
+          pass    : 'PASS'
       }
       }).done(() => {
         // $('#to_id_select').val('');
