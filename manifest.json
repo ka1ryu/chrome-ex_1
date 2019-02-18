@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Create Ticket Title",
-  "version": "1.0",
+  "version": "2.01",
 
   "browser_action": {
     "default_icon": {
@@ -11,7 +11,7 @@
   },
   "content_scripts": [
           {
-               "matches": ["https://login.bizmanager.yahoo.co.jp/login?url=https://promotionalads.business.yahoo.co.jp*"],
+               "matches": ["http://redmine.tools.usaqh.com/projects/*"],
                "js": ["script.js"]
           }
      ],

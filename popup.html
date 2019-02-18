@@ -38,10 +38,12 @@
   <div class="cp_ipselect cp_sl01">
       <select required id="services">
         <option value="null">--- サービスを選択してください ---</option>
-        <option value="otkou">otoku</option>
-        <option value="光コラボ">回線・光コラボ</option>
-        <option value="らくサポ">回線・らくサポ</option>
-        <option value="エアサポ">エアサポ</option>
+        <option value="一括">一括</option>
+        <option value="予約">予約</option>
+        <option value="一括/予約">一括/予約</option>
+        <option value="回線">回線</option>
+        <option value="エアコン工事">エアコン工事</option>
+        <option value="エアコン販売">エアコン販売</option>
         <option value="ガラス修理">ガラス修理</option>
         <option value="雨漏り修理">雨漏り修理</option>
         <option value="ペット葬儀">ペット葬儀</option>
@@ -68,17 +70,20 @@
     <div class="select-os">
       <input type="radio" id="LPO" name="optimization" value="LPO" class="optimization">
       <label for="LPO">
-          <i class="fab fa-windows"></i> LPO
+        <i class="fab fa-windows"></i> LPO
       </label>
-
-          <input type="radio" id="EFO" name="optimization" value="EFO" class="optimization">
+      <input type="radio" id="EFO" name="optimization" value="EFO" class="optimization">
       <label for="EFO">
           <i class="fab fa-windows"></i> EFO
       </label>
+      <input type="radio" id="article" name="optimization" value="記事" class="optimization">
+      <label for="article">
+          <i class="fab fa-windows"></i> 記事
+      </label>      
     </div>
   </form>
   <form name="deviceNames">
-  <div class="select-os">
+    <div class="select-os">
       <input type="radio" id="SP" name="device" value="SP" class="device">
       <label for="SP">
           <i class="fab fa-apple"></i> SP
@@ -96,9 +101,22 @@
     </div>
   </form>
     <div class="copy-btn">
-      <a href="#" class="square_btn" id="create">クリックして挿入</a>
+      <a href="#" class="square_btn" id="create">クリックでタイトル挿入</a>
+    </div>
+    <div class="cp_ipselect cp_sl01">
+      <select required id="templates">
+        <option value="common_temp">共通テンプレ</option>
+        <option value="newArticle_temp">新規記事</option>
+        <option value="rewrite_temp">リライト</option>
+        <option value="internalRefurbishment_temp">内部改修（SEO）</option>
+        <option value="createImage_temp">画像作成</option>
+      </select>
+    </div>
+    <div class="copy-btn">
+      <a href="#" class="square_btn" id="insertTemp">クリックして概要を挿入</a>
     </div>
   </div>
   <script src="popup.js"></script>
+  <script src="jquery-3.3.1.min.js" type="text/javascript"></script>
 </body>
 </html>

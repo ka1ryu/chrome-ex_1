@@ -1,18 +1,25 @@
 document.addEventListener('DOMContentLoaded', function() {
   document.getElementById("create").addEventListener("click", createTitle);
+  document.getElementById("insertTemp").addEventListener("click", insertTemplate);
 });
 
-function getTicketTitle(){
-  chrome.tabs.query({active:true}, function(tab) {
-    var titleText = document.getElementById('targetText').innerHTML;
 
-         chrome.tabs.sendMessage(tab[0].id, {list: titleText}, function(response){
-           console.log(response.result);
-         });
-     });
+
+function insertTemplate () {
+  var selectedTempNum = document.getElementById("templates").value;
+  if ( selectedTempNum.indexOf('temp')){
+    console.log(selectedTempNum);
+    chrome.tabs.query({active:true}, function(tab) {
+        chrome.tabs.sendMessage(tab[0].id, {list: selectedTempNum}, function(response){
+        });
+      });
+  } else {
+    document.getElementById("says").textContent = "テンプレートを選んでほしいです…";
+  }
 }
 
-var chicketTitle = "";
+
+
 
 function createTitle() {
   if (getServiceName()) {
@@ -21,17 +28,21 @@ function createTitle() {
     getChannel();
     getOpt();
     getDevice();
+    if(opt == "" && channel != "SEO") {
+      setErrorMessage();
+    }
+
     if (channel == "on") {
         //document.getElementById("targetText").textContent = job + "【" + service + "】" + opt +"｜"+ device;
         chrome.tabs.query({active:true}, function(tab) {
-        var titleText = job + "【" + service + "】" + opt +"｜"+ device;
+        var titleText = job + "【" + service + "】" + device +"｜"+ opt;
         chrome.tabs.sendMessage(tab[0].id, {list: titleText}, function(response){
         });
       });
     } else {
         //document.getElementById("targetText").textContent = job + "【" + service + "】" + channel + "｜" + opt +"｜"+ device;
         chrome.tabs.query({active:true}, function(tab) {
-        var titleText = job + "【" + service + "】" + channel + "｜" + opt +"｜"+ device;
+        var titleText = job + "【" + service + "】" + channel + "｜" + device +"｜"+ opt;
         chrome.tabs.sendMessage(tab[0].id, {list: titleText}, function(response){
         });
       });
@@ -63,7 +74,7 @@ function getServiceName() {
   var serviceName = document.getElementById("services").value;
   // 未選択の場合は、エラー対応
   if (serviceName == "null") {
-    document.getElementById("says").textContent = "ちゃんと全部入力しとる？";
+    setErrorMessage();
     document.getElementById("targetText").textContent = "";
     return false;
   } else {
@@ -83,6 +94,7 @@ function getChannel() {
   }
   // 職種未選択の場合アラート表示
   if (channelName.length == 0) {
+    setErrorMessage();
     return;
   }
   channel = channelName
@@ -94,11 +106,10 @@ function getOpt() {
     // i番目のチェックボックスがチェックされているかを判定
     if (document.optNames.optimization[i].checked) {
       optName = document.optNames.optimization[i].value;
+    } 
+    if(optName == undefined){
+      optName = "";
     }
-  }
-  // 職種未選択の場合アラート表示
-  if (optName.length == 0) {
-    return;
   }
   // 選択済みの職種を確保
   opt = optName;
@@ -138,3 +149,19 @@ function copyTextToClip() {
   }
   selection.removeAllRanges();
 }
+
+function setErrorMessage () {
+  document.getElementById("says").textContent = "ちゃんと全部入力しとる？";
+}
+
+/*
+function getTicketTitle(){
+  chrome.tabs.query({active:true}, function(tab) {
+    var titleText = document.getElementById('targetText').innerHTML;
+
+         chrome.tabs.sendMessage(tab[0].id, {list: titleText}, function(response){
+           console.log(response.result);
+         });
+     });
+}
+*/
